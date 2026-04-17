@@ -1,0 +1,52 @@
+# ===========================
+# Cache do Python
+# ===========================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ===========================
+# Cache e relatórios do Pytest
+# ===========================
+.pytest_cache/
+**/.pytest_cache/
+.cache/
+
+# ===========================
+# Ambientes virtuais
+# ===========================
+.venv/
+venv/
+env/
+ENV/
+
+# ===========================
+# Relatórios de cobertura
+# ===========================
+.coverage
+coverage.xml
+htmlcov/
+*.cover
+
+# ===========================
+# Distribuição / build
+# ===========================
+dist/
+build/
+*.egg-info/
+
+# ===========================
+# IDEs e editores
+# ===========================
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===========================
+# Variáveis de ambiente
+# ===========================
+.env
+.env.*

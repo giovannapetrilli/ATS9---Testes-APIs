@@ -1,0 +1,33 @@
+---
+test_name: "Fluxo de Tarefas - Busca e Validação por Usuário"
+
+parametrize:
+  key: todo_id
+  vals:
+    - 1
+    - 5
+    - 15
+
+stages:
+  - name: "Stage 1 - Busca da Tarefa Específica (todo_id={todo_id})"
+    request:
+      url: "https://jsonplaceholder.typicode.com/todos/{todo_id}"
+      method: GET
+    response:
+      status_code: 200
+      json:
+        id: "{todo_id:d}"
+      save:
+        json:
+          id_do_usuario: userId
+
+  - name: "Stage 2 - Busca de Todas as Tarefas do Usuário {id_do_usuario}"
+    request:
+      url: "https://jsonplaceholder.typicode.com/todos"
+      method: GET
+      params:
+        userId: "{id_do_usuario}"
+    response:
+      status_code: 200
+      verify_response_with:
+        function: "utils:validar_lista_tarefas"
